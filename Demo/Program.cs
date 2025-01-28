@@ -51,6 +51,21 @@ namespace Demo
             ////var result = ProductList.SingleOrDefault(p => p.UnitPrice > 20);
             //Console.WriteLine(result?.ProductName ?? "No Data");
             #endregion
+            #region Aggregate Operators
+            //var result = ProductList.Count;
+            //Console.WriteLine(result);
+            //var result = ProductList.Sum(p => p.UnitPrice);
+            //Console.WriteLine(result);
+            //var result = ProductList.Average(p => p.UnitPrice);
+            //Console.WriteLine(result);
+            //var result = ProductList.Min(p => p.UnitPrice);
+            //Console.WriteLine(result);
+            //var result1 = ProductList.MinBy(p => p.UnitPrice);
+            //Console.WriteLine(result1);
+            string[] Names = { "Omar", "Saad", "Sayed", "Ahmed" };
+            string FullName = Names.Aggregate((str01, str02) => $"{str01}{str02}");
+            Console.WriteLine(FullName);
+            #endregion
         }
     }
 }
