@@ -82,8 +82,28 @@ namespace Demo
             //{
             //    Console.WriteLine(item);
             //}
-            Dictionary<long, string> products = ProductList.Where(p => p.UnitsInStock == 0).ToDictionary(p => p.ProductID, p => p.ProductName);
-            foreach (var item in products)
+            //Dictionary<long, string> products = ProductList.Where(p => p.UnitsInStock == 0).ToDictionary(p => p.ProductID, p => p.ProductName);
+            //foreach (var item in products)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Generation Operators(Differed Execution)
+            //Range:
+            //var result = Enumerable.Range(0, 100).Where(p => p % 2 == 0);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Repeat:
+            //var result = Enumerable.Repeat(new Product() { Category="Meat"}, 10);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Empty:
+            var result = Enumerable.Empty<Product>();
+            foreach (var item in result)
             {
                 Console.WriteLine(item);
             }
