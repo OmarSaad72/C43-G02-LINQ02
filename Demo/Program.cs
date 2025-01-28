@@ -62,9 +62,31 @@ namespace Demo
             //Console.WriteLine(result);
             //var result1 = ProductList.MinBy(p => p.UnitPrice);
             //Console.WriteLine(result1);
-            string[] Names = { "Omar", "Saad", "Sayed", "Ahmed" };
-            string FullName = Names.Aggregate((str01, str02) => $"{str01}{str02}");
-            Console.WriteLine(FullName);
+            //string[] Names = { "Omar", "Saad", "Sayed", "Ahmed" };
+            //string FullName = Names.Aggregate((str01, str02) => $"{str01}{str02}");
+            //Console.WriteLine(FullName);
+            #endregion
+            #region Casting Operators
+            //List<Product> list = ProductList.Where(p => p.UnitsInStock == 0).ToList();
+            //foreach (var item in list)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Product[] products = ProductList.Where(p => p.UnitsInStock == 0).ToArray();
+            //foreach (var item in products)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Dictionary<long, Product> products = ProductList.Where(p => p.UnitsInStock == 0).ToDictionary(p => p.ProductID);
+            //foreach (var item in products)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            Dictionary<long, string> products = ProductList.Where(p => p.UnitsInStock == 0).ToDictionary(p => p.ProductID, p => p.ProductName);
+            foreach (var item in products)
+            {
+                Console.WriteLine(item);
+            }
             #endregion
         }
     }
