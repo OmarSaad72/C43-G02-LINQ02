@@ -1,4 +1,6 @@
-﻿namespace Demo
+﻿using Assignment;
+using static Assignment.ListGenerator;
+namespace Demo
 {
     internal class Program
     {
@@ -18,6 +20,36 @@
             //int x = 12345;
             //int y = x.Reverse();
             //Console.WriteLine(y);
+            #endregion
+            #region Element Operator
+            //var result = ProductList.First();
+            //Console.WriteLine(result);
+            //var result = ProductList.Last();
+            //Console.WriteLine(result);
+            //ProductList = new List<Product>();
+            //var result = ProductList.FirstOrDefault(new Product { ProductName ="Chai"});
+            //Console.WriteLine(result?.ProductName ?? "Not Found");
+            //var result = ProductList.LastOrDefault();
+            //Console.WriteLine(result?.ProductName??"Not Found");
+
+            ////var result = ProductList.FirstOrDefault(p => p.UnitsInStock == 0);
+            ////Console.WriteLine(result?.ProductName);
+            //var result = ProductList.LastOrDefault(p => p.UnitsInStock == 0);
+            //Console.WriteLine(result?.ProductName); 
+            //var result = ProductList.FirstOrDefault(p => p.UnitsInStock == 1000);
+            //Console.WriteLine(result?.ProductName);
+            //var result = ProductList.LastOrDefault(p => p.UnitsInStock == 1000);
+            //Console.WriteLine(result?.ProductName??"Not Found");
+            //var result = ProductList.ElementAtOrDefault(1000);
+            //Console.WriteLine(result?.ProductName??"Not Found");
+            //var discount= new List<Product>();
+            //var result = discount.SingleOrDefault(); // Handled if empty
+            ////var result = ProductList.SingleOrDefault();
+            //Console.WriteLine(result?.ProductName??"No Data");
+            //var discount = new List<Product>();
+            //var result = discount.SingleOrDefault(); // Handled if empty
+            ////var result = ProductList.SingleOrDefault(p => p.UnitPrice > 20);
+            //Console.WriteLine(result?.ProductName ?? "No Data");
             #endregion
         }
     }
