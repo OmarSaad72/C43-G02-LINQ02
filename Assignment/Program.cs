@@ -5,6 +5,8 @@ using static Assignment.Order;
 using Microsoft.VisualBasic;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
+using System.Threading;
+using System.Xml;
 
 namespace Assignment
 {
@@ -143,12 +145,74 @@ namespace Assignment
             //}
             //Q13- Get the products with the most expensive price in each category.  ####
             //Q14- Get the average price of each category's products.  ####
-            var result = ProductList.GroupBy(p => p.Category).Select(c => new
-            {
-                c.Key,
-                price = c.Average(p => p.UnitPrice)
-            });
+            //var result = ProductList.GroupBy(p => p.Category).Select(c => new
+            //{
+            //    c.Key,
+            //    price = c.Average(p => p.UnitPrice)
+            //});
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Set Operators
+            //Q1- Find the unique Category names from Product List
+            //var Seq1 = ProductList.Select(P => P.Category).Distinct();
+            //var Seq1 = ProductList.Select(P => P.Category);
+            //var Seq2 = ProductList.Select(P => P.Category);
+            //var result = Seq1.Union(Seq2);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            /*Q2- Produce a Sequence containing the unique first letter from both
+             product and customer names.*/
+            //var Seq1 = ProductList.Select(P => P.ProductName[0]);
+            //var Seq2 = CustomerList.Select(c => c.CustomerName[0]);
+            //var result = Seq1.Union(Seq2);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            /*Q3- Create one sequence that contains the common first letter from 
+             both product and customer names.*/
+            //var Seq01 = ProductList.Select(P => P.ProductName[0]);
+            //var Seq02 = CustomerList.Select(c => c.CustomerName[0]);
+            //var result1 = Seq01.Intersect(Seq02);
+            //var result = ProductList.Select(p => p.ProductName[0]).Intersect(CustomerList.Select(c => c.CustomerName[0]));
+            //var result2 = ProductList.Select(p => p.ProductName[0]).Concat(CustomerList.Select(c => c.CustomerName[0]));
+            //result = result.Distinct();
+            //foreach (var item in result)
+            ////foreach (var item in result1)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            /*Q4- Create one sequence that contains the first letters of product 
+             names that are not also first letters of customer names.*/
+            //var Seq01 = ProductList.Select(P => P.ProductName[0]);
+            //var Seq02 = CustomerList.Select(c => c.CustomerName[0]);
+            //var result1 = Seq01.Except(Seq02);
+            //var result = ProductList.Select(p => p.ProductName[0]).Except(CustomerList.Select(c => c.CustomerName[0]));
+            ////result = result.Except();
+            //foreach (var item in result)
+            ////foreach (var item in result1)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            /*Q5- Create one sequence that contains the last Three Characters in each 
+             name of all customers and products, including any duplicates*/
+            //var Seq01 = ProductList.Select(P => P.ProductName.Substring(P.ProductName.Length - 3));
+            //var Seq02 = CustomerList.Select(c => c.CustomerName.Substring(c.CustomerName.Length - 3));
+            //var result1 = Seq01.Concat(Seq02);
+            var result = ProductList.Select(p => p.ProductName.Substring(p.ProductName.Length - 3))
+            .Concat(CustomerList.Select(c => c.CustomerName.Substring(c.CustomerName.Length - 3)));
             foreach (var item in result)
+            //foreach (var item in result1)
             {
                 Console.WriteLine(item);
             }
