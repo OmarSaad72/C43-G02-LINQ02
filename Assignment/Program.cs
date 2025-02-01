@@ -209,13 +209,13 @@ namespace Assignment
             //var Seq01 = ProductList.Select(P => P.ProductName.Substring(P.ProductName.Length - 3));
             //var Seq02 = CustomerList.Select(c => c.CustomerName.Substring(c.CustomerName.Length - 3));
             //var result1 = Seq01.Concat(Seq02);
-            var result = ProductList.Select(p => p.ProductName.Substring(p.ProductName.Length - 3))
-            .Concat(CustomerList.Select(c => c.CustomerName.Substring(c.CustomerName.Length - 3)));
-            foreach (var item in result)
-            //foreach (var item in result1)
-            {
-                Console.WriteLine(item);
-            }
+            //var result = ProductList.Select(p => p.ProductName.Substring(p.ProductName.Length - 3))
+            //.Concat(CustomerList.Select(c => c.CustomerName.Substring(c.CustomerName.Length - 3)));
+            //foreach (var item in result)
+            ////foreach (var item in result1)
+            //{
+            //    Console.WriteLine(item);
+            //}
             #endregion
         }
     }
