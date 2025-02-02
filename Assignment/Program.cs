@@ -7,6 +7,8 @@ using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.X86;
 using System.Threading;
 using System.Xml;
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace Assignment
 {
@@ -31,7 +33,6 @@ namespace Assignment
             //              select a).ElementAtOrDefault(3);
             //Console.WriteLine(result);
             #endregion
-
             #region Aggregate Operators
             //Q1- Uses Count to get the number of odd numbers in the array
             //int[] Arr = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
@@ -133,6 +134,12 @@ namespace Assignment
             //}
 
             //Q11- Get the products with the cheapest price in each category(Use Let)  #####
+            //var result = from p in ProductList
+            //             let Price = p.UnitPrice
+            //             group p by p.Category
+            //             into MinPrice
+            //             where MinPrice.Min(ProductList.UnitPrice)
+            //             select MinPrice;
             //Q12- Get the most expensive price among each category's products.  ####
             //var result = ProductList.GroupBy(p => p.Category).Select(c => new
             //{
@@ -144,6 +151,18 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
             //Q13- Get the products with the most expensive price in each category.  ####
+            //var result = from p in ProductList
+            //             group p by p.Category
+            //             into MaxPrice
+            //             select MaxPrice.Max(p => p.UnitPrice);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.WriteLine(item1);
+            //    }
+            //}
             //Q14- Get the average price of each category's products.  ####
             //var result = ProductList.GroupBy(p => p.Category).Select(c => new
             //{
@@ -155,7 +174,6 @@ namespace Assignment
             //    Console.WriteLine(item);
             //}
             #endregion
-
             #region Set Operators
             //Q1- Find the unique Category names from Product List
             //var Seq1 = ProductList.Select(P => P.Category).Distinct();
@@ -216,6 +234,46 @@ namespace Assignment
             //{
             //    Console.WriteLine(item);
             //}
+            #endregion
+            #region Partitioning Operators
+            //Q1- Get the first 3 orders from customers in Washington
+            //var result = CustomerList.Where(c => c.City == "Washington").Take(3);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Q2- Get all but the first 2 orders from customers in Washington.
+            //var result = CustomerList.Where(c => c.City == "Washington").Skip(2);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            /*Q3- Return elements starting from the beginning of the array until
+             a number is hit that is less than its position in the array.*/
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var result = numbers.Where((n, i) => n < i).Skip(6);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Q4- Get the elements of the array starting from the first element divisible by 3.
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var result = numbers.Where(n=>n %3==0).Take(4);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Q5- Get the elements of the array starting from the first element less than its position.
+            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var result = numbers.Where((n, i) => n < i).Take(6);
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
             #endregion
         }
     }
