@@ -9,6 +9,9 @@ using System.Threading;
 using System.Xml;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.SqlTypes;
 
 namespace Assignment
 {
@@ -268,11 +271,41 @@ namespace Assignment
             //}
 
             //Q5- Get the elements of the array starting from the first element less than its position.
-            int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
-            var result = numbers.Where((n, i) => n < i).Take(6);
+            //int[] numbers = { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            //var result = numbers.Where((n, i) => n < i).Take(6);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Quantifiers
+            /*Q1- Determine if any of the words in dictionary_english.txt(Read dictionary
+             _english.txt into Array of String First) contain the substring 'ei'.*/
+            //string[] dictionary_english = File.ReadAllLines("dictionary_english.txt");
+            //string? substring = "ei";
+            //var result = dictionary_english.Contains(substring);
+            //Console.WriteLine(result);
+
+            /*Q2- Return a grouped a list of products only for categories that have at least one product that is out of stock.*/
+            //var result = ProductList.Where(p => p.UnitsInStock == 0).GroupBy(p => p.Category);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.WriteLine(item1);
+            //    }
+            //}
+
+            /*Q3- Return a grouped a list of products only for categories that have all of their products in stock.*/
+            var result = ProductList.Where(p => p.UnitsInStock > 0).GroupBy(p => p.Category);
             foreach (var item in result)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.Key);
+                foreach (var item1 in item)
+                {
+                    Console.WriteLine(item1);
+                }
             }
             #endregion
         }
