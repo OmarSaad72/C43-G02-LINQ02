@@ -12,6 +12,8 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlTypes;
+using static System.Net.Mime.MediaTypeNames;
+using System.Collections;
 
 namespace Assignment
 {
@@ -298,15 +300,60 @@ namespace Assignment
             //}
 
             /*Q3- Return a grouped a list of products only for categories that have all of their products in stock.*/
-            var result = ProductList.Where(p => p.UnitsInStock > 0).GroupBy(p => p.Category);
-            foreach (var item in result)
-            {
-                Console.WriteLine(item.Key);
-                foreach (var item1 in item)
-                {
-                    Console.WriteLine(item1);
-                }
-            }
+            //var result = ProductList.Where(p => p.UnitsInStock > 0).GroupBy(p => p.Category);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.WriteLine(item1);
+            //    }
+            //}
+            #endregion
+            #region Grouping Operators
+            //Q1- Use group by to partition a list of numbers by their remainder when divided by 5
+            //List<int> numbers = new List<int> { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+            //var result = numbers.GroupBy(n => n % 5);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"Remainder of {item.Key} when divided by 5:");
+
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.WriteLine($"{item1}");
+            //    }
+            //}
+
+            /*Q2- Uses group by to partition a list of words by their first letter.
+              Use dictionary_english.txt for Input*/
+            //string[] dictionary_english = File.ReadAllLines("dictionary_english.txt");
+            //var result = dictionary_english.GroupBy(d => d[0]);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    foreach (var item1 in item)
+            //    {
+            //        Console.WriteLine(item1);
+            //    }
+            //}
+
+            /*3.Consider this Array as an Input, Use Group By with a custom comparer
+            that matches words that are consists of the same Characters Together*/
+                       //################//
+            //string[] Arr = { "from", "salt", "earn", " last", "near", "form" };
+            //var result = Arr.GroupBy(w => string.Concat(w.OrderBy(d => d)));
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    foreach (var item1 in item)
+            //    {
+            //        foreach (var item2 in item)
+            //        {
+            //            Console.WriteLine(item1);
+            //            Console.WriteLine(item2);
+            //        }
+            //    }
+            //}
             #endregion
         }
     }
